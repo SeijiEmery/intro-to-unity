@@ -10,9 +10,15 @@ public class Movement : MonoBehaviour
         
     }
 
+    private float moveSpeed = 10.0f; // m/s
+
     // Update is called once per frame
-    void Update()
-    {
-        
+    void Update() {
+        var moveDir = new Vector3(
+            Input.GetAxis("Horizontal"),
+            0.0f,
+            Input.GetAxis("Vertical")
+        );
+        transform.Translate(moveDir * moveSpeed * Time.deltaTime);
     }
 }
